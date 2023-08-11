@@ -100,10 +100,10 @@ This project only have apis
 ## You can test API using postman
 Step 1: Add these requests to your postman <br>
 
-    http://127.0.0.1:8000/api/auth/register  <br> 
-    http://127.0.0.1:8000/api/auth/login   <br> 
-    http://127.0.0.1:8000/api/auth/logout   <br> 
-    http://127.0.0.1:8000/api/auth/user  <br> 
+    http://127.0.0.1:8000/api/auth/register  
+    http://127.0.0.1:8000/api/auth/login    
+    http://127.0.0.1:8000/api/auth/logout   
+    http://127.0.0.1:8000/api/auth/user  
     
 Step 2: After register user, login user and copy token and paste it there:
 
