@@ -65,7 +65,44 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
+## Before start the project you should have these softwares XAMP server installed in your system
+This project only have apis
+
 ## Steps to Run After cloning this repositary
 
-**step 1: run this command in project terminal**
-php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+-----Step 1: Set .ENV file
+    APP_ENV=local
+    APP_URL=http://localhost
+    
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=authenticationdb
+    DB_USERNAME=root
+    DB_PASSWORD=
+
+-----Step 2: Intsall dependencies
+    composer install
+
+-----Step 3: Run this command in project terminal
+    php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+
+-----Step 4: Run migration
+    php artisan migrate
+
+-----Step 5: Run command to start project
+    php artisan serve
+
+## You can test API using postman
+Step 1: Add these requests to your postman 
+    http://127.0.0.1:8000/api/auth/register
+    http://127.0.0.1:8000/api/auth/login
+    http://127.0.0.1:8000/api/auth/logout
+    http://127.0.0.1:8000/api/auth/user
+    
+Step 2: After register user, login user and copy token and paste it there:
+![image](https://github.com/Adnan913/authentication_laravel/assets/54793380/c52003bd-0051-4e8a-b7c6-6706dfc18cb4)
+
+Now you can check authentications.
+  
+
