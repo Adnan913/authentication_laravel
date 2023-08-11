@@ -65,4 +65,7 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-## Steps to Run After cloning this repo
+## Steps to Run After cloning this repositary
+
+**step 1: run this command in project terminal**
+php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
