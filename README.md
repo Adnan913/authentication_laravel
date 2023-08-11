@@ -94,14 +94,15 @@ This project only have apis
     php artisan serve
 
 ## You can test API using postman
-Step 1: Add these requests to your postman 
-    http://127.0.0.1:8000/api/auth/register \n
-    http://127.0.0.1:8000/api/auth/login
-    http://127.0.0.1:8000/api/auth/logout
-    http://127.0.0.1:8000/api/auth/user
+Step 1: Add these requests to your postman <br>
+    http://127.0.0.1:8000/api/auth/register  <br> 
+    http://127.0.0.1:8000/api/auth/login   <br> 
+    http://127.0.0.1:8000/api/auth/logout   <br> 
+    http://127.0.0.1:8000/api/auth/user  <br> 
     
 Step 2: After register user, login user and copy token and paste it there:
-![image](https://github.com/Adnan913/authentication_laravel/assets/54793380/233073b2-5d64-471b-ba47-5ddb3fd90687)
+![image](https://github.com/Adnan913/authentication_laravel/assets/54793380/831de4c9-16ba-4d76-8ed6-8545fd9ec9fa)
+
 
 Now you can check authentications.
   
