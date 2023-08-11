@@ -94,7 +94,7 @@ This project only have apis
     php artisan serve
 
 ## You can test API using postman
-Step 1: Add these requests to your postman 
+Step 1: Add these requests to your postman \n
     http://127.0.0.1:8000/api/auth/register
     http://127.0.0.1:8000/api/auth/login
     http://127.0.0.1:8000/api/auth/logout
