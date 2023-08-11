@@ -81,16 +81,16 @@ This project only have apis
     DB_USERNAME=root
     DB_PASSWORD=
 
------Step 2: Intsall dependencies
+-----Step 2: Intsall dependencies <br>
     composer install
 
------Step 3: Run this command in project terminal
+-----Step 3: Run this command in project terminal <br>
     php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
 
------Step 4: Run migration
+-----Step 4: Run migration <br>
     php artisan migrate
 
------Step 5: Run command to start project
+-----Step 5: Run command to start project <br>
     php artisan serve
 
 ## You can test API using postman
