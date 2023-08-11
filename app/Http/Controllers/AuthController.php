@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-// use Illuminate\Support\Facades\Auth;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+use Session;
 
 class AuthController extends Controller
 {
@@ -30,14 +30,14 @@ class AuthController extends Controller
         $user = User::create([
             'name'=>$request->name,
             'email' => $request->email,
-            'password'=> Hash::make($request->passwprd)
+            'password'=> Hash::make($request->password)
         ]);
 
         return response()->json([
             'status'  => true,
             'message' => 'User created successfully',
             'token'  => $user->createToken('API TOKEN')->plainTextToken
-        ],200);
+        ],201);
     }
 
      /**
@@ -51,8 +51,6 @@ class AuthController extends Controller
     public function loginUser(Request $request)
     {
         try{
-
-        
             $validateUser = Validator::make($request->all(),
             [
                 'email'    => 'required|email',
@@ -66,21 +64,8 @@ class AuthController extends Controller
                 ],401);            
             }
 
-            $credentials =[
-                'email'    => $request->email,
-                'password' => $request->password               
-            ];
-
-            // dd($credentials);
-            
-            // dd(Auth::attempt(['email' => $request->email, 'password' => $request->password]));
-
-            // return "fff". $request->email."---".$request->password."----".!Auth::attempt(['email' => $request->email, 'password' => $request->password]);
-            // if(!Auth::attempt(['email' => $request->email, 'password' => Hash::make($request->password)]) ){
-            // if(!Auth::attempt($request->only(['email', 'password'] ))){
-            $credentials = $request->only(['email', 'password']);
-            $credentials['password'] = Hash::make($credentials['password']);
-            if (!Auth::attempt($credentials,true)) {
+            $credentials = $request->only('email', 'password');
+            if (!Auth::attempt($credentials)) {
                 return response()->json([
                     'status'  => false,
                     'message' => 'email and pass error',
@@ -97,12 +82,20 @@ class AuthController extends Controller
 
         }
         catch(\Throwable $th){
-            
             return response()->json([
                 'status'  => false,
                 'message' => $th->getMessage()
             ],500); 
         }
+    }
 
+    public function logoutUser(Request $request){
+        // Session::flush();
+        // Auth::logout();
+        $request->user()->currentAccessToken()->delete();
+        return response()->json([
+            'status'  => true,
+            'message' => 'User logout successfully',
+        ],200);
     }
 }
